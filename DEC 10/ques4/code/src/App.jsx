@@ -4,7 +4,7 @@ import UserProfile from './UserProfile'
 const App = () => {
   return (
     <div>
-      <UserProfile />
+      <UserProfile />U
     </div>
   )
 }
