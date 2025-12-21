@@ -1,4 +1,7 @@
 import React from "react";
+import { ThemeProvider , useTheme } from "./ThemeContext";
+import{PostsProvider} from "./PostsContext";
+import postList from "./PostList"
 
 const Header=()=>{
   const{ theme, toggleTheme} = useTheme();
