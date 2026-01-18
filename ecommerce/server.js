@@ -10,6 +10,8 @@ app.use('/products',productRoutes);
 app.use('/orders',orderRoutes);
 app.use('/analytics',analyticeRoutes);
 
+
+
 app.listen(3000, ()=>{
     console.log("server is running on port 3000");
 })
