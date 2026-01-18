@@ -20,8 +20,7 @@ router.post("/", (req, res) => {
     quantity,
     totalAmount: product.price*quantity,
     status:"placed",
-    createdAt: new
-    Date(),toISOString().split('T')[0]
+    createdAt: new Date().toISOString().split("T")[0]
   };
 product.stock -=quantity;
 db.orders.push(newOrder);
@@ -48,8 +47,7 @@ router.patch('/:id',(req,res)=>{
 router.delete('/:id',(req,res)=>{
 const db =getDB();
 const order = db.orders.find(o=>o.id==req.params.id);
-const today =new
-Date(),toISOString().split('T')[0]
+const today =newDate().toISOString().split("T")[0]
 
 if(order && order.createdAt === today){
     const product = db.products.find(p=>p.id===order.productId);
