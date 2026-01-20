@@ -1,0 +1,74 @@
+--Do all CRUD Operations
+create table studentss0 (
+  id SERIAL primary key,
+  name TEXT not null,
+  email TEXT unique not null,
+  age INTEGER,
+  course TEXT,
+  created_at TIMESTAMP DEFAULT NOW() );
+INSERT INTO studentss0(name,email,age,course) 
+values
+('Aarav Sharma', 'aarav@gmail.com', 22, 'Full Stack'),
+('Neha Verma', 'neha@gmail.com', 19, 'Frontend'),
+('Rohan Singh', 'rohan@gmail.com', 24, 'Backend'),
+('Priya Patel', 'priya@gmail.com', 21, 'Full Stack'),
+('Kunal Mehta', 'kunal@gmail.com', 18, 'Frontend');
+select * from studentss0;
+| id | name         | email           | age | course     | created_at                 |
+| -- | ------------ | --------------- | --- | ---------- | -------------------------- |
+| 1  | Aarav Sharma | aarav@gmail.com | 22  | Full Stack | 2026-01-20 10:20:04.646976 |
+| 2  | Neha Verma   | neha@gmail.com  | 19  | Frontend   | 2026-01-20 10:20:04.646976 |
+| 3  | Rohan Singh  | rohan@gmail.com | 24  | Backend    | 2026-01-20 10:20:04.646976 |
+| 4  | Priya Patel  | priya@gmail.com | 21  | Full Stack | 2026-01-20 10:20:04.646976 |
+| 5  | Kunal Mehta  | kunal@gmail.com | 18  | Frontend   | 2026-01-20 10:20:04.646976 |
+select * from studentss0 where age>20;
+| id | name         | email           | age | course     | created_at                 |
+| -- | ------------ | --------------- | --- | ---------- | -------------------------- |
+| 1  | Aarav Sharma | aarav@gmail.com | 22  | Full Stack | 2026-01-20 10:20:04.646976 |
+| 3  | Rohan Singh  | rohan@gmail.com | 24  | Backend    | 2026-01-20 10:20:04.646976 |
+| 4  | Priya Patel  | priya@gmail.com | 21  | Full Stack | 2026-01-20 10:20:04.646976 |
+select name,email from studentss0;
+| name         | email           |
+| ------------ | --------------- |
+| Aarav Sharma | aarav@gmail.com |
+| Neha Verma   | neha@gmail.com  |
+| Rohan Singh  | rohan@gmail.com |
+| Priya Patel  | priya@gmail.com |
+| Kunal Mehta  | kunal@gmail.com |
+select * from studentss0 where course ='Full Stack';
+| id | name         | email           | age | course     | created_at                 |
+| -- | ------------ | --------------- | --- | ---------- | -------------------------- |
+| 1  | Aarav Sharma | aarav@gmail.com | 22  | Full Stack | 2026-01-20 10:20:04.646976 |
+| 4  | Priya Patel  | priya@gmail.com | 21  | Full Stack | 2026-01-20 10:20:04.646976 |
+update studentss0 
+set age =29 where id = 1;
+| id | name         | email           | age | course     | created_at                 |
+| -- | ------------ | --------------- | --- | ---------- | -------------------------- |
+| 2  | Neha Verma   | neha@gmail.com  | 19  | Frontend   | 2026-01-20 10:20:04.646976 |
+| 3  | Rohan Singh  | rohan@gmail.com | 24  | Backend    | 2026-01-20 10:20:04.646976 |
+| 4  | Priya Patel  | priya@gmail.com | 21  | Full Stack | 2026-01-20 10:20:04.646976 |
+| 5  | Kunal Mehta  | kunal@gmail.com | 18  | Frontend   | 2026-01-20 10:20:04.646976 |
+| 1  | Aarav Sharma | aarav@gmail.com | 29  | Full Stack | 2026-01-20 10:20:04.646976 |
+update studentss0
+set course = 'MongoDB' where course='Frontend';
+| id | name         | email           | age | course     | created_at                 |
+| -- | ------------ | --------------- | --- | ---------- | -------------------------- |
+| 3  | Rohan Singh  | rohan@gmail.com | 24  | Backend    | 2026-01-20 10:20:04.646976 |
+| 4  | Priya Patel  | priya@gmail.com | 21  | Full Stack | 2026-01-20 10:20:04.646976 |
+| 1  | Aarav Sharma | aarav@gmail.com | 29  | Full Stack | 2026-01-20 10:20:04.646976 |
+| 2  | Neha Verma   | neha@gmail.com  | 19  | MongoDB    | 2026-01-20 10:20:04.646976 |
+| 5  | Kunal Mehta  | kunal@gmail.com | 18  | MongoDB    | 2026-01-20 10:20:04.646976 |
+delete from studentss0 where id =5;
+| id | name         | email           | age | course     | created_at                 |
+| -- | ------------ | --------------- | --- | ---------- | -------------------------- |
+| 3  | Rohan Singh  | rohan@gmail.com | 24  | Backend    | 2026-01-20 10:20:04.646976 |
+| 4  | Priya Patel  | priya@gmail.com | 21  | Full Stack | 2026-01-20 10:20:04.646976 |
+| 1  | Aarav Sharma | aarav@gmail.com | 29  | Full Stack | 2026-01-20 10:20:04.646976 |
+| 2  | Neha Verma   | neha@gmail.com  | 19  | MongoDB    | 2026-01-20 10:20:04.646976 |
+delete from studentss0 where age <20;
+| id | name         | email           | age | course     | created_at                 |
+| -- | ------------ | --------------- | --- | ---------- | -------------------------- |
+| 3  | Rohan Singh  | rohan@gmail.com | 24  | Backend    | 2026-01-20 10:20:04.646976 |
+| 4  | Priya Patel  | priya@gmail.com | 21  | Full Stack | 2026-01-20 10:20:04.646976 |
+| 1  | Aarav Sharma | aarav@gmail.com | 29  | Full Stack | 2026-01-20 10:20:04.646976 |
+| 2  | Neha Verma   | neha@gmail.com  | 19  | MongoDB    | 2026-01-20 10:20:04.646976 |
