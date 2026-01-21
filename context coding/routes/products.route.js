@@ -8,4 +8,12 @@ router.get("/",(req,res)=>{
     res.json(db.products);
 });
 
-router.post("/",)
+router.post("/",(req,res)=>{
+    const db =readDB();
+    const newProduct = {id:db.products.length +1 ,...req.body};
+    db.products.push(newProduct);
+    writeDB(db);
+    res.status(201).json(newProduct);
+});
+
+export default router;
