@@ -4,13 +4,11 @@ import { readDB, writeDB } from "../utils.js";
 const router = express.Router();
 
 // Get all products
+
 router.get("/", (req, res) => {
-  res.json({ message: "Products route works" });
+  const db = readDB();
+  res.json({ count: db.products.length, products: db.products });
 });
-// router.get("/", (req, res) => {
-//   const db = readDB();
-//   res.json({ count: db.products.length, products: db.products });
-// });
 
 // Add new product
 router.post("/", (req, res) => {
