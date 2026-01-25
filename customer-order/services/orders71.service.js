@@ -1,22 +1,22 @@
-import { supabase } from "../config/supabase";
+import { supabase } from "../config/supabase.js";
 
-export const createOrder = async(payload) =>{
-    const {data,error} = await supabase
-    .from('orders71')
+export const createOrder = async (payload) => {
+  const { data, error } = await supabase
+    .from("orders71")
     .insert(payload)
     .select()
     .single();
 
-  if (error)  throw error;
-  return data; 
+  if (error) throw error;
+  return data;
 };
 
-export const getOrdersByCustomer =async(customerId) =>{
-    const {data,error} =await supabase
-    .from('orders71')
-    .select('*')
-    .eq('customer_is', customerId);
+export const getOrdersByCustomer = async (customerId) => {
+  const { data, error } = await supabase
+    .from("orders71")
+    .select("*")
+    .eq("customer_id", customerId);
 
-  if(error) throw error;
-  return data;  
-}
+  if (error) throw error;
+  return data;
+};
