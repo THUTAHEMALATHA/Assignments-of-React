@@ -12,7 +12,7 @@ function mysetInterval(callback,delay){
   timerId -setTimeout(run, delay);
 
   return function clearMyInterval(){
-    stopped true;
+    stopped = true;
     clearTimeout(timerId);
   }
 
