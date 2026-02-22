@@ -16,6 +16,18 @@ function createCountdown(seconds, onTick, onComplete){
     }
 
     function start(){
-        
+        endTime =  Date.now()+ remaining *1000;
+        timerid =setInterval(tick,1000);
     }
+    function pause(){
+        clearInterval(timerid);
+        remaining= Math.max(0,
+            Math.ceil((endTime -Date.now())/1000));
+                 
+    }
+    function resume(){
+        start();
+    }
+    start();
+    return {pause,resume};
 }
