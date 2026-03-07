@@ -12,6 +12,5 @@ if(n>0){
         
     }
 }else {
-    console.log("negative number or morethan 0 is not valid here");
-    
+    console.log(" these are negative number or morethan 0 is not valid here");
 };
