@@ -10,8 +10,9 @@ router.post("/enroll",validateEnrollement,
         const {data,error} =await supabase
         .from("enrollments")
         .insert([{student_name,course_id}])
-        
-    })
+
+    });
+    ro
     
 router.get("/courses", async(req, res)=>{
     const {data,error} = await supabase
